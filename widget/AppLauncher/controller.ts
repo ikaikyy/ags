@@ -14,11 +14,16 @@ export default class AppLauncherController {
   readonly appList: Variable<Apps.Application[]> = Variable.derive(
     [this.selectedIndex, this.searchQuery],
     (_, searchQuery) => {
-      const appList = this.apps.fuzzy_query(searchQuery).sort((a, b) => {
-        if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-        if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-        return 0;
-      });
+      const appList = this.apps
+        .exact_query(searchQuery)
+        .filter((app) =>
+          app.name.toLowerCase().includes(searchQuery.toLowerCase()),
+        )
+        .sort((a, b) => {
+          if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+          return 0;
+        });
 
       return appList;
     },

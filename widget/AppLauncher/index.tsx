@@ -55,9 +55,9 @@ export default function AppLauncher() {
       <box
         cssClasses={["main"]}
         orientation={Gtk.Orientation.VERTICAL}
-        spacing={8}
+        spacing={12}
       >
-        <box cssClasses={["header"]} spacing={8} hexpand={true}>
+        <box cssClasses={["header"]} spacing={12} hexpand={true}>
           <Icon iconName="nix-snowflake" size={32} />
           <entry
             cssClasses={["search-input"]}
@@ -81,13 +81,13 @@ export default function AppLauncher() {
           <box
             cssClasses={["app-list"]}
             orientation={Gtk.Orientation.VERTICAL}
-            spacing={8}
+            spacing={12}
           >
             {appLaunchController.appList().as((appList) =>
               appList.map((app, index) => {
                 if (appLaunchController.selectedIndex.get() === index) {
-                  const ITEM_HEIGHT = 44;
-                  const ITEM_SPACING = 8;
+                  const ITEM_HEIGHT = 48;
+                  const ITEM_SPACING = 12;
 
                   scrolledWindow
                     .get()
@@ -110,9 +110,9 @@ export default function AppLauncher() {
                           ? "selected"
                           : "",
                       ]}
-                      spacing={8}
+                      spacing={12}
                     >
-                      <Icon iconName={app.iconName} size={24} />
+                      <Icon iconName={app.iconName} size={32} />
                       <label label={app.name} cssClasses={["app-name"]} />
                     </box>
                   </button>

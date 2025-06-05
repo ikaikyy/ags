@@ -30,7 +30,6 @@ $fg4: #a89984;
 
 * {
   font-family: 'Hack Nerd Font', monospace;
-  font-size: 14px;
 }
 
 window.Bar {
@@ -166,29 +165,28 @@ window.Bar {
 
 window.AppLauncher {
   background: rgba($bg0, 0.8);
+  border-radius: 16px;
   color: $fg1;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
 
-  border: 2px solid $green;
-
   & .main {
-    padding: 8px;
+    padding: 12px;
 
     & .header {
       & .icon {
-        border: 2px solid $green;
-        border-radius: 4px;
+        background: rgba($fg0, .05);
+        border-radius: 8px;
 
-        padding: 4px;
+        padding: 8px;
       }
 
       & .search-input {
-        background: transparent;
-        border-radius: 4px;
-        border: 2px solid $green;
+        background: rgba($fg0, .05);
+        border: none;
+        border-radius: 8px;
         outline: none;
-        padding: 4px 12px;
+        padding: 8px 12px;
 
         color: $fg1;
 
@@ -206,11 +204,8 @@ window.AppLauncher {
         padding: 0;
 
         & .app {
-          color: $fg1;
-          font-weight: bold;
-
-          border-radius: 4px;
-          border: 2px solid $green;
+          background: rgba($fg0, .05);
+          border-radius: 8px;
 
           padding: 8px;
 
@@ -218,8 +213,7 @@ window.AppLauncher {
 
           &.selected,
           &:hover {
-            background: $green;
-            color: $bg0;
+            background: rgba($green, .8);
           }
         }
       }
